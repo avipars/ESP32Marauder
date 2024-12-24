@@ -237,7 +237,7 @@
   #ifdef ESP32_S3
     #define FLIPPER_ZERO_HAT
     //#define HAS_BATTERY
-    #define HAS_BT
+    // #define HAS_BT
     //HAS_BT_REMOTE see if relevant for later
     //#define HAS_BUTTONS
     //#define HAS_NEOPIXEL_LED
@@ -1013,7 +1013,8 @@
     #endif
 
     #ifdef ESP32_S3
-      #define SD_CS 10
+      #define SD_CS 3
+      //maybe 10 idk
     #endif
   #endif
   //// END SD DEFINITIONS
