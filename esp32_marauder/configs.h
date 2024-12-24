@@ -11,7 +11,7 @@
   //#define MARAUDER_MINI
   //#define MARAUDER_V4
   //#define MARAUDER_V6
-  #define MARAUDER_V6_1
+  // #define MARAUDER_V6_1
   //#define MARAUDER_V7
   //#define MARAUDER_KIT
   //#define GENERIC_ESP32
@@ -20,6 +20,7 @@
   //#define MARAUDER_DEV_BOARD_PRO
   //#define XIAO_ESP32_S3
   //#define MARAUDER_REV_FEATHER
+  #define ESP32_S3
   //// END BOARD TARGETS
 
   #define MARAUDER_VERSION "v1.2.1"
