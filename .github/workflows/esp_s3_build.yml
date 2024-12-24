@@ -52,19 +52,6 @@ jobs:
         run: |
           find /home/runner/.arduino15/packages/esp32/hardware/
 
-      - name: Modify platform.txt
-        run: |
-            for i in $(find /home/runner/.arduino15/packages/esp32/hardware/esp32/ -name "platform.txt"); do
-              sed -i 's/compiler.c.elf.libs.esp32c3=/compiler.c.elf.libs.esp32c3=-zmuldefs /' "$i"
-              sed -i 's/compiler.c.elf.libs.esp32s3=/compiler.c.elf.libs.esp32s3=-zmuldefs /' "$i"
-              sed -i 's/compiler.c.elf.libs.esp32s2=/compiler.c.elf.libs.esp32s2=-zmuldefs /' "$i"
-              sed -i 's/compiler.c.elf.libs.esp32=/compiler.c.elf.libs.esp32=-zmuldefs /' "$i"
-              cat "$i" | grep compiler.c.elf.libs.esp32c3
-              cat "$i" | grep compiler.c.elf.libs.esp32s3
-              cat "$i" | grep compiler.c.elf.libs.esp32s2
-              cat "$i" | grep compiler.c.elf.libs.esp32
-            done
-          
       - name: Install AsyncTCP
         uses: actions/checkout@v2
         with:
@@ -155,7 +142,27 @@ jobs:
           repository: adafruit/Adafruit_MAX1704X
           ref: 1.0.2
           path: CustomAdafruit_MAX1704X
-          
+
+      - name: Verify Installed Cores Again
+        run: arduino-cli core list
+        
+      - name: Show Arduino dir structure
+        run: |
+          find /home/runner/.arduino15/packages/esp32/hardware/
+
+      - name: Modify platform.txt
+        run: |
+            for i in $(find /home/runner/.arduino15/packages/esp32/hardware/esp32/ -name "platform.txt"); do
+              sed -i 's/compiler.c.elf.libs.esp32c3=/compiler.c.elf.libs.esp32c3=-zmuldefs /' "$i"
+              sed -i 's/compiler.c.elf.libs.esp32s3=/compiler.c.elf.libs.esp32s3=-zmuldefs /' "$i"
+              sed -i 's/compiler.c.elf.libs.esp32s2=/compiler.c.elf.libs.esp32s2=-zmuldefs /' "$i"
+              sed -i 's/compiler.c.elf.libs.esp32=/compiler.c.elf.libs.esp32=-zmuldefs /' "$i"
+              cat "$i" | grep compiler.c.elf.libs.esp32c3
+              cat "$i" | grep compiler.c.elf.libs.esp32s3
+              cat "$i" | grep compiler.c.elf.libs.esp32s2
+              cat "$i" | grep compiler.c.elf.libs.esp32
+            done         
+
       - name: Configure configs.h for Flipper Zero WiFi Dev Board
         run: |
           sed -i 's/^  #define MARAUDER_REV_FEATHER/  \/\/#define MARAUDER_REV_FEATHER/' esp32_marauder/configs.h
