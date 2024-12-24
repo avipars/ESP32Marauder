@@ -12,11 +12,14 @@
 
 #include "WiFiScan.h"
 //#include "Web.h"
-#ifdef HAS_SD
+#if defined(HAS_SD) || defined(USE_SD)
   #include "SDInterface.h"
 #endif
 #include "settings.h"
-#include "LedInterface.h"
+#ifdef HAS_NEOPIXEL_LED
+  #include "LedInterface.h"
+  extern LedInterface led_obj;
+#endif
 
 #ifdef HAS_SCREEN
   extern MenuFunctions menu_function_obj;
@@ -29,7 +32,6 @@ extern WiFiScan wifi_scan_obj;
   extern SDInterface sd_obj;
 #endif
 extern Settings settings_obj;
-extern LedInterface led_obj;
 extern LinkedList<AccessPoint>* access_points;
 extern LinkedList<AirTag>* airtags;
 extern LinkedList<ssid>* ssids;
