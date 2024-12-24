@@ -1162,7 +1162,7 @@ String WiFiScan::freeRAM()
 void WiFiScan::startPcap(String file_name) {
   buffer_obj.pcapOpen(
     file_name,
-    #if defined(HAS_SD)
+    #ifdef HAS_SD
       sd_obj.supported ? &SD :
     #endif
     NULL,
@@ -1173,7 +1173,7 @@ void WiFiScan::startPcap(String file_name) {
 void WiFiScan::startLog(String file_name) {
   buffer_obj.logOpen(
     file_name,
-    #if defined(HAS_SD)
+    #ifdef HAS_SD
       sd_obj.supported ? &SD :
     #endif
     NULL,
@@ -1256,7 +1256,7 @@ void WiFiScan::RunLoadATList() {
 
 void WiFiScan::RunSaveATList(bool save_as) {
   if (save_as) {
-    #elif defined(HAS_SD)
+    #ifdef HAS_SD
       sd_obj.removeFile("/Airtags_0.log");
     #endif
 
@@ -1362,7 +1362,7 @@ void WiFiScan::RunLoadAPList() {
 
 void WiFiScan::RunSaveAPList(bool save_as) {
   if (save_as) {
-    #elif defined(HAS_SD)
+    #ifdef HAS_SD
       sd_obj.removeFile("/APs_0.log");
     #endif
 
@@ -1446,10 +1446,10 @@ void WiFiScan::RunLoadSSIDList() {
 
 void WiFiScan::RunSaveSSIDList(bool save_as) {
   if (save_as) {
-    #elif defined(HAS_SD)
+    #ifdef HAS_SD
       sd_obj.removeFile("/SSIDs_0.log");
     #endif 
-    
+
     this->startLog("SSIDs");
 
     for (int i = 0; i < ssids->size(); i++) {
