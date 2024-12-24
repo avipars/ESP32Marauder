@@ -1,4 +1,5 @@
 #include "LedInterface.h"
+#ifdef HAS_NEOPIXEL_LED
 
 LedInterface::LedInterface() {
 
@@ -89,3 +90,4 @@ uint32_t LedInterface::Wheel(byte WheelPos) {
   WheelPos -= 170;
   return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
 }
+#endif

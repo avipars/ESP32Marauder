@@ -1072,6 +1072,8 @@
     #define MEM_LOWER_LIM 20000
   #elif defined(ESP32_S3)
     #define MEM_LOWER_LIM 20000
+  #else
+    #define MEM_LOWER_LIM 20000
   #endif
   //// END MEMORY LOWER LIMIT STUFF
 
@@ -1084,7 +1086,7 @@
       #define PIN 16
     #elif defined(MARAUDER_REV_FEATHER)
       #define PIN 33
-    #else
+    #else defined(HAS_NEOPIXEL_LED)
       #define PIN 25
     #endif
   

@@ -2,6 +2,7 @@
 
 #ifndef GpsInterface_h
 #define GpsInterface_h
+#ifdef HAS_GPS
 
 #include <MicroNMEA.h>
 // #include <SoftwareSerial.h>
@@ -119,4 +120,5 @@ class GpsInterface {
     void setGPSInfo();
 };
 
+#endif
 #endif

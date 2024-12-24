@@ -13,7 +13,7 @@ jobs:
     
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
 #      - name: Install ESP32 Boards and Compile TestFile
 #        uses: ArminJo/arduino-test-compile@v3.2.1
@@ -53,112 +53,112 @@ jobs:
           find /home/runner/.arduino15/packages/esp32/hardware/
         
 #      - name: Pull arduino-esp32 v2.0.4
-#        uses: actions/checkout@v2
+#        uses: actions/checkout@v4
 #        with:
 #          repository: espressif/arduino-esp32
 #          ref: 2.0.4
 #          path: 2.0.4arduino-esp32
           
 #      - name: Pull arduino-esp32 v2.0.10
-#        uses: actions/checkout@v2
+#        uses: actions/checkout@v4
 #        with:
 #          repository: espressif/arduino-esp32
 #          ref: 2.0.10
 #          path: 2.0.10
           
       - name: Install AsyncTCP
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: me-no-dev/AsyncTCP
           ref: master
           path: CustomAsyncTCP
           
       - name: Install MicroNMEA
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: stevemarple/MicroNMEA
           ref: v2.0.6
           path: CustomMicroNMEA
           
       - name: Install ESPAsyncWebServer
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: bigbrodude6119/ESPAsyncWebServer
           ref: master
           path: CustomESPAsyncWebServer
           
       - name: Install TFT_eSPI
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: Bodmer/TFT_eSPI
           ref: V2.5.34
           path: CustomTFT_eSPI
 
       - name: Install lv_arduino
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: lvgl/lv_arduino
           ref: 3.0.0
           path: Customlv_arduino
 
       - name: Install JPEGDecoder
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: Bodmer/JPEGDecoder
           ref: 1.8.0
           path: CustomJPEGDecoder
 
       - name: Install NimBLE-Arduino
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: h2zero/NimBLE-Arduino
-          ref: 1.3.5
+          ref: 1.4.1
           path: CustomNimBLE-Arduino
 
       - name: Install Adafruit_NeoPixel
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: adafruit/Adafruit_NeoPixel
           ref: 1.10.7
           path: CustomAdafruit_NeoPixel
 
       - name: Install ArduinoJson
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: bblanchon/ArduinoJson
           ref: v6.18.2
           path: CustomArduinoJson
 
       #- name: Install SwitchLib
-      #  uses: actions/checkout@v2
+      #  uses: actions/checkout@v4
       #  with:
       #    repository: justcallmekoko/SwitchLib
       #    ref: main
       #    path: CustomSwitchLib
           
       - name: Install LinkedList
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: ivanseidel/LinkedList
           ref: v1.3.3
           path: CustomLinkedList
           
       - name: Install EspSoftwareSerial
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: plerup/espsoftwareserial
           ref: 8.1.0
           path: CustomEspSoftwareSerial
           
       - name: Install Adafruit_BusIO
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: adafruit/Adafruit_BusIO
           ref: 1.15.0
           path: CustomAdafruit_BusIO
           
       - name: Install Adafruit_MAX1704X
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: adafruit/Adafruit_MAX1704X
           ref: 1.0.2
