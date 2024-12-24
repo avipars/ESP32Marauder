@@ -22,7 +22,7 @@
   //#define MARAUDER_REV_FEATHER
   //// END BOARD TARGETS
 
-  #define MARAUDER_VERSION "v1.2.0"
+  #define MARAUDER_VERSION "v1.2.1"
 
   //// HARDWARE NAMES
   #ifdef MARAUDER_M5STICKC
@@ -49,6 +49,8 @@
     #define HARDWARE_NAME "Flipper Zero Dev Board Pro"
   #elif defined(XIAO_ESP32_S3)
     #define HARDWARE_NAME "XIAO ESP32 S3"
+  #elif defined(ESP32_S3)
+    #define HARDWARE_NAME "ESP32 S3"
   #else
     #define HARDWARE_NAME "ESP32"
   #endif
@@ -230,6 +232,13 @@
     //#define HAS_TEMP_SENSOR
     //#define HAS_GPS
   #endif
+
+  #ifdef ESP32_S3
+    #define FLIPPER_ZERO_HAT // no built in SD, so use the flipper one
+    #define HAS_BT
+    //HAS_BT_REMOTE see if relevant for later
+  #endif
+
   //// END BOARD FEATURES
 
   //// POWER MANAGEMENT
@@ -994,6 +1003,9 @@
       #define SD_CS 3
     #endif
 
+    #ifdef ESP32_S3
+      #define SD_CS 3 // todo verify this is right and works
+    #endif
   #endif
   //// END SD DEFINITIONS
 
@@ -1047,7 +1059,7 @@
     #define MEM_LOWER_LIM 20000
   #elif defined(MARAUDER_DEV_BOARD_PRO)
     #define MEM_LOWER_LIM 20000
-  #elif defined(XIAO_ESP32_S3)
+  #elif defined(XIAO_ESP32_S3) || defined(ESP32_S3)
     #define MEM_LOWER_LIM 20000
   #endif
   //// END MEMORY LOWER LIMIT STUFF
@@ -1091,7 +1103,7 @@
     #define MAX_HTML_SIZE 20000
   #elif defined(MARAUDER_DEV_BOARD_PRO)
     #define MAX_HTML_SIZE 20000
-  #elif defined(XIAO_ESP32_S3)
+  #elif defined(XIAO_ESP32_S3) || defined(ESP32_S3)
     #define MAX_HTML_SIZE 20000
   #else
     #define MAX_HTML_SIZE 20000
