@@ -1,4 +1,4 @@
-name: Build and Push v3
+name: Build and Push v3 Zero
 
 on:
   workflow_dispatch:
