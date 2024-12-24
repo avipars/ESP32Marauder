@@ -1,4 +1,4 @@
-name: Build and Push
+name: Build and Push (OG)
 
 on:
   workflow_dispatch:
