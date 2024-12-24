@@ -1013,8 +1013,8 @@
     #endif
 
     #ifdef ESP32_S3
-      #define SD_CS 3
-      //maybe 10 idk
+      #define SD_CS 10
+      //maybe 10 idk or 3
     #endif
   #endif
   //// END SD DEFINITIONS
