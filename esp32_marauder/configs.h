@@ -237,7 +237,7 @@
   #ifdef ESP32_S3
     #define FLIPPER_ZERO_HAT
     //#define HAS_BATTERY
-    // #define HAS_BT
+    #define HAS_BT
     //HAS_BT_REMOTE see if relevant for later
     //#define HAS_BUTTONS
     //#define HAS_NEOPIXEL_LED
