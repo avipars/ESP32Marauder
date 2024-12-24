@@ -10,12 +10,12 @@
   //#define MARAUDER_M5STICKC
   //#define MARAUDER_MINI
   //#define MARAUDER_V4
-  //#define MARAUDER_V6
-  // #define MARAUDER_V6_1
+  #define MARAUDER_V6
+  //#define MARAUDER_V6_1
   //#define MARAUDER_V7
   //#define MARAUDER_KIT
   //#define GENERIC_ESP32
-  //#define MARAUDER_FLIPPER
+  #define MARAUDER_FLIPPER
   //#define ESP32_LDDB
   //#define MARAUDER_DEV_BOARD_PRO
   //#define XIAO_ESP32_S3
@@ -23,7 +23,7 @@
   #define ESP32_S3
   //// END BOARD TARGETS
 
-  #define MARAUDER_VERSION "v1.2.1"
+  #define MARAUDER_VERSION "v1.2.0"
 
   //// HARDWARE NAMES
   #ifdef MARAUDER_M5STICKC
@@ -182,7 +182,7 @@
   #ifdef MARAUDER_FLIPPER
     //#define FLIPPER_ZERO_HAT
     //#define HAS_BATTERY
-    //#define HAS_BT
+    #define HAS_BT
     //#define HAS_BUTTONS
     //#define HAS_NEOPIXEL_LED
     //#define HAS_PWR_MGMT
@@ -235,9 +235,17 @@
   #endif
 
   #ifdef ESP32_S3
-    #define FLIPPER_ZERO_HAT // no built in SD, so use the flipper one
+    #define FLIPPER_ZERO_HAT
+    //#define HAS_BATTERY
     #define HAS_BT
     //HAS_BT_REMOTE see if relevant for later
+    //#define HAS_BUTTONS
+    //#define HAS_NEOPIXEL_LED
+    //#define HAS_PWR_MGMT
+    //#define HAS_SCREEN
+    //#define HAS_SD
+    //#define HAS_TEMP_SENSOR
+    //#define HAS_GPS
   #endif
 
   //// END BOARD FEATURES
@@ -1005,7 +1013,7 @@
     #endif
 
     #ifdef ESP32_S3
-      #define SD_CS 3 // todo verify this is right and works
+      #define SD_CS 10
     #endif
   #endif
   //// END SD DEFINITIONS
@@ -1060,7 +1068,9 @@
     #define MEM_LOWER_LIM 20000
   #elif defined(MARAUDER_DEV_BOARD_PRO)
     #define MEM_LOWER_LIM 20000
-  #elif defined(XIAO_ESP32_S3) || defined(ESP32_S3)
+  #elif defined(XIAO_ESP32_S3)
+    #define MEM_LOWER_LIM 20000
+  #elif defined(ESP32_S3)
     #define MEM_LOWER_LIM 20000
   #endif
   //// END MEMORY LOWER LIMIT STUFF
@@ -1104,7 +1114,9 @@
     #define MAX_HTML_SIZE 20000
   #elif defined(MARAUDER_DEV_BOARD_PRO)
     #define MAX_HTML_SIZE 20000
-  #elif defined(XIAO_ESP32_S3) || defined(ESP32_S3)
+  #elif defined(XIAO_ESP32_S3)
+    #define MAX_HTML_SIZE 20000
+  #elif defined(ESP32_S3)
     #define MAX_HTML_SIZE 20000
   #else
     #define MAX_HTML_SIZE 20000
